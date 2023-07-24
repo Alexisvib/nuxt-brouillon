@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>{{ product.title }}</Title>
+    <Meta name="description" :content="product.description" />
+  </Head>
   <div>
     <div role="status" v-if="loading" class="flex justify-center">
       <svg aria-hidden="true" class="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-red-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +21,7 @@
   definePageMeta({
     layout: 'products'
   });
+
   const { id } = useRoute().params;
 
   const PRODUCT_LINK = `https://fakestoreapi.com/products/${ id }`;
